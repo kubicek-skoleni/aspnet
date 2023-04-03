@@ -1,4 +1,5 @@
 ﻿@{
+    bool ok = (bool)ViewData["ok"];
 }
 
 <div class="card card-body">
@@ -6,5 +7,7 @@
     <br />
     <br />
     Status: OK
+    <br />
+    DB CanConnect: @ok
 </div>
 

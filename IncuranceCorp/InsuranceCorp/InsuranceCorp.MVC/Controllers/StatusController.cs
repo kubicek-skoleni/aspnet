@@ -17,6 +17,10 @@ namespace InsuranceCorp.MVC.Controllers
 
         public IActionResult Index()
         {
+            bool ok = _context.Database.CanConnect();
+
+            ViewData["ok"] = ok;
+
             return View();
         }
     }
