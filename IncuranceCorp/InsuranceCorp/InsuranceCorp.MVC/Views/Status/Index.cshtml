@@ -5,9 +5,20 @@
 <div class="card card-body">
     @DateTime.Now
     <br />
-    <br />
     Status: OK
     <br />
-    DB CanConnect: @ok
+    @if (ok)
+    {
+        <div class="alert alert-success" role="alert">
+            Připojení do db proběhlo bez problémů
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger" role="alert">
+            NEPODAŘILO SE PŘIPOJIT DO DB
+        </div>
+    }
+
 </div>
 
