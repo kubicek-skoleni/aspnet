@@ -6,5 +6,45 @@
 }
 
 <div>
+    <table>
+        <tr>
+            <td>
+                Jméno
+            </td>
+            <td>
+                Příjmení
+            </td>
+            <td>
+                Datum narození
+            </td>
+            <td>
+                Email
+            </td>
+            <td>
+                Počet smluv
+            </td>
+        </tr>
 
+        @foreach (var person in Model)
+        {
+            <tr>
+                <td>
+                    @person.FirstName
+                </td>
+                <td>
+                    @person.LastName
+                </td>
+                <td>
+                    @person.DateOfBirth.ToString("dd. MM. yyyy")
+                </td>
+                <td>
+                    @person.Email
+                </td>
+                <td>
+                    @person.Constracts.Count()
+                </td>
+            </tr>
+        }
+
+    </table>
 </div>
