@@ -11,7 +11,7 @@ https://learn.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/intro?view=a
 ### Routing
 https://learn.microsoft.com/en-us/aspnet/core/mvc/controllers/routing?view=aspnetcore-7.0
 
-MVC: /controller/metoda
+MVC: /controller/metoda (Home/Index)
 
 
 ### Entity Framework Core
