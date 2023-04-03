@@ -11,8 +11,12 @@ https://learn.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/intro?view=a
 ### Routing
 https://learn.microsoft.com/en-us/aspnet/core/mvc/controllers/routing?view=aspnetcore-7.0
 
+MVC: /controller/metoda
+
+
 ### Entity Framework Core
 https://learn.microsoft.com/en-us/ef/core/
+
 DbContext - spojení mezi db a c# - LINQ / SaveChanges()
 
 
