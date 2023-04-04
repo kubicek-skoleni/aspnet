@@ -31,6 +31,12 @@ namespace InsuranceCorp.MVC.Controllers
             // 1. ziskat data
             var person = _context.Persons.Find(id);
 
+            //if (person == null)
+            //    return NotFound();
+
+            if (person == null)
+                return View("NotFound");
+
             // 2. zobrazit view
             return View(person);
         }
@@ -45,7 +51,7 @@ namespace InsuranceCorp.MVC.Controllers
         {
             // ulozit do db
             _context.Persons.Add(person);
-            _context.SaveChanges();
+            var changed = _context.SaveChanges();
 
             // navrat gui
             return Redirect($"/person/detail/{person.Id}");
