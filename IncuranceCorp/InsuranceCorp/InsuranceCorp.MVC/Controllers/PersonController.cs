@@ -35,7 +35,10 @@ namespace InsuranceCorp.MVC.Controllers
             //    return NotFound();
 
             if (person == null)
+            {
+                ViewData["id"] = id;
                 return View("NotFound");
+            }
 
             // 2. zobrazit view
             return View(person);
