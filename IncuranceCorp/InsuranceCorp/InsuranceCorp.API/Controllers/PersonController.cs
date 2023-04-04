@@ -35,6 +35,22 @@ namespace InsuranceCorp.API.Controllers
                         .Take(100).ToListAsync();
         }
 
+        // GET: api/Person/city/brno
+        [HttpGet("city/{mesto}")]
+        public async Task<ActionResult> GetPersonsByCity(string mesto)
+        {
+            if (_context.Persons == null)
+            {
+                return NotFound();
+            }
+            return Ok(_context.Persons
+                        .Include(person => person.Address)
+                        .Include(person => person.Contracts)
+                        .Where(person => person.Address != null && person.Address.City.ToUpper() == mesto.ToUpper())
+                        .Select(person => new {person.FirstName, person.LastName, person.Address.City})
+                        .ToList());
+        }
+
         // GET: api/Person/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Person>> GetPerson(int id)
@@ -47,6 +63,27 @@ namespace InsuranceCorp.API.Controllers
                             .Include(person => person.Address)
                             .Include(person => person.Contracts)
                             .FirstOrDefaultAsync(person => person.Id == id);
+
+            if (person == null)
+            {
+                return NotFound();
+            }
+
+            return person;
+        }
+
+        // GET: api/Person/5
+        [HttpGet("email/{email}")]
+        public async Task<ActionResult<Person>> GetPersonByEmail(string email)
+        {
+            if (_context.Persons == null)
+            {
+                return NotFound();
+            }
+            var person = await _context.Persons
+                            .Include(person => person.Address)
+                            .Include(person => person.Contracts)
+                            .FirstOrDefaultAsync(person => person.Email.ToUpper() == email.ToUpper());
 
             if (person == null)
             {
