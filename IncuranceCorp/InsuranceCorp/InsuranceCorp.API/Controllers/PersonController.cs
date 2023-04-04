@@ -29,7 +29,10 @@ namespace InsuranceCorp.API.Controllers
           {
               return NotFound();
           }
-            return await _context.Persons.Take(100).ToListAsync();
+            return await _context.Persons
+                        .Include(person => person.Address)
+                        .Include(person => person.Contracts)
+                        .Take(100).ToListAsync();
         }
 
         // GET: api/Person/5
@@ -40,7 +43,10 @@ namespace InsuranceCorp.API.Controllers
           {
               return NotFound();
           }
-            var person = await _context.Persons.FindAsync(id);
+            var person = await _context.Persons
+                            .Include(person => person.Address)
+                            .Include(person => person.Contracts)
+                            .FirstOrDefaultAsync(person => person.Id == id);
 
             if (person == null)
             {
