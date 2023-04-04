@@ -23,6 +23,7 @@
             <td>
                 Počet smluv
             </td>
+            <td></td>
         </tr>
 
         @foreach (var person in Model)
@@ -42,6 +43,9 @@
                 </td>
                 <td>
                     @person.Constracts.Count()
+                </td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="Person" asp-action="Edit" asp-route-id="@person.Id">Editovat</a>
                 </td>
             </tr>
         }
