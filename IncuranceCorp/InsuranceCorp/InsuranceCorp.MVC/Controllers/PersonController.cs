@@ -1,6 +1,7 @@
 ﻿using InsuranceCorp.Data;
 using InsuranceCorp.Model;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -51,6 +52,8 @@ namespace InsuranceCorp.MVC.Controllers
         [Authorize]
         public IActionResult Add()
         {
+            var prihlaseny_email = User.Identity.Name;
+            
             return View();
         }
 
