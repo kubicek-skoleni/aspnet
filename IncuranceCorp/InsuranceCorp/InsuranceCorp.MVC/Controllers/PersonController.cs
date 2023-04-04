@@ -22,7 +22,7 @@ namespace InsuranceCorp.MVC.Controllers
         {
             // 1. ziskat data
             var top100 = _context.Persons
-                    .Include(person => person.Constracts)
+                    .Include(person => person.Contracts)
                     .OrderBy(person => person.Id)
                     //.OrderByDescending(person => person.Constracts.Count())
                     .Take(100).ToList();
