@@ -1,10 +1,12 @@
 ﻿using InsuranceCorp.Data;
 using InsuranceCorp.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace InsuranceCorp.MVC.Controllers
 {
+    //[Authorize]
     public class PersonController : Controller
     {
         private readonly InsCorpDbContext _context;
@@ -13,6 +15,8 @@ namespace InsuranceCorp.MVC.Controllers
         {
             _context = context;
         }
+
+        //[AllowAnonymous]
         public IActionResult Index()
         {
             // 1. ziskat data
@@ -44,12 +48,14 @@ namespace InsuranceCorp.MVC.Controllers
             return View(person);
         }
 
+        [Authorize]
         public IActionResult Add()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Add(Person person)
         {
             // ulozit do db
@@ -60,6 +66,7 @@ namespace InsuranceCorp.MVC.Controllers
             return Redirect($"/person/detail/{person.Id}");
         }
 
+        [Authorize]
         public IActionResult Edit(int id)
         {
             // najit osobu z db
@@ -70,6 +77,7 @@ namespace InsuranceCorp.MVC.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Edit(Person form_person)
         {
             if (!ModelState.IsValid)
