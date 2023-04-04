@@ -1,0 +1,17 @@
+1. Popište pár slovy a řekněte k čemu slouží:
+
+- MVC
+- Controller
+- View
+- Model
+
+2. Co je Dependency Injection?
+
+3. K čemu je Razor?
+
+4. Jak se dají přenášet data mezi Controllerem a View?
+
+5. Jaký nástroj se používá pro správu balíčků v .net?
+
+
+
