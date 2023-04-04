@@ -100,5 +100,19 @@ namespace InsuranceCorp.MVC.Controllers
             ViewData["success_message"] = "Uloženo do databáze";
             return View(db_person);
         }
+
+        public IActionResult GetByEmail(string email)
+        {
+            //vyhledat osobu
+            var person = _context.Persons
+                        .Where(person => person.Email.ToUpper() == email.ToUpper())
+                        .FirstOrDefault();
+
+            if(person == null)
+                return NotFound();
+
+            return View("Detail", person);
+                        
+        }
     }
 }
