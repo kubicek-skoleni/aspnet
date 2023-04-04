@@ -1,4 +1,5 @@
 ﻿using InsuranceCorp.Data;
+using InsuranceCorp.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -32,6 +33,22 @@ namespace InsuranceCorp.MVC.Controllers
 
             // 2. zobrazit view
             return View(person);
+        }
+
+        public IActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Add(Person person)
+        {
+            // ulozit do db
+            _context.Persons.Add(person);
+            _context.SaveChanges();
+
+            // navrat gui
+            return Redirect($"/person/detail/{person.Id}");
         }
     }
 }
