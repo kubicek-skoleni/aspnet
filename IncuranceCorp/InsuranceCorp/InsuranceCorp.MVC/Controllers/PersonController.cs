@@ -72,6 +72,11 @@ namespace InsuranceCorp.MVC.Controllers
         [HttpPost]
         public IActionResult Edit(Person form_person)
         {
+            if (!ModelState.IsValid)
+            {
+                //nevalidni data, vratit error message
+            }
+
             // najit osobu z db
             var db_person = _context.Persons.Find(form_person.Id);
 
@@ -80,7 +85,7 @@ namespace InsuranceCorp.MVC.Controllers
             db_person.FirstName = form_person.FirstName;
             db_person.LastName = form_person.LastName;
             db_person.Email = form_person.Email;
-            db_person.DateOfBirth= form_person.DateOfBirth;
+            db_person.DateOfBirth = form_person.DateOfBirth;
 
             // 2. možnost zápisu
             //_context.Entry(db_person).CurrentValues.SetValues(form_person);

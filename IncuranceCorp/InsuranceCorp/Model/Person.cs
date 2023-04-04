@@ -10,15 +10,19 @@ public class Person
     public int Id { get; set; }
 
     [MaxLength(250)]
+    [Display(Name ="Jméno")]
     public string? FirstName { get; set; }
+    
     [MaxLength(250)]
-
+    [Display(Name = "Příjmení")]
     public string? LastName { get; set; }
 
     [MaxLength(525)]
     [EmailAddress]
     public string? Email { get; set; }
 
+    [Display(Name = "Datum narození")]
+    [DataType(DataType.Date)]
     public DateTime DateOfBirth { get; set; }
     public Address? Address { get; set; }
     public ICollection<Contract> Constracts { get; set; } = new HashSet<Contract>();
