@@ -76,10 +76,19 @@ namespace InsuranceCorp.MVC.Controllers
             var db_person = _context.Persons.Find(form_person.Id);
 
             // upravit hodnoty v db dle inputu z formu
+            // 1. možnost zápisu
             db_person.FirstName = form_person.FirstName;
             db_person.LastName = form_person.LastName;
             db_person.Email = form_person.Email;
             db_person.DateOfBirth= form_person.DateOfBirth;
+
+            // 2. možnost zápisu
+            //_context.Entry(db_person).CurrentValues.SetValues(form_person);
+
+            // 3. možnost
+            //_context.Entry(form_person).State = EntityState.Modified;
+            
+
             _context.SaveChanges();
 
             // view
