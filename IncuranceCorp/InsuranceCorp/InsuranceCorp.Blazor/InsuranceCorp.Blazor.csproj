@@ -10,4 +10,9 @@
     <Folder Include="Data\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Data\InsuranceCorp.Data.csproj" />
+    <ProjectReference Include="..\Model\InsuranceCorp.Model.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,0 +1,66 @@
+﻿@page "/person"
+@using InsuranceCorp.Data;
+@using InsuranceCorp.Model;
+@using Microsoft.EntityFrameworkCore;
+
+@inject InsCorpDbContext context
+
+<h3>Seznam osob</h3>
+
+<table class="table">
+    <tr>
+        <td>
+            Jméno
+        </td>
+        <td>
+            Příjmení
+        </td>
+        <td>
+            Datum narození
+        </td>
+        <td>
+            Email
+        </td>
+        <td>
+            Počet smluv
+        </td>
+        <td></td>
+    </tr>
+
+    @foreach (var person in persons)
+    {
+        <tr>
+            <td>
+                @person.FirstName
+            </td>
+            <td>
+                @person.LastName
+            </td>
+            <td>
+                @person.DateOfBirth.ToString("dd. MM. yyyy")
+            </td>
+            <td>
+                <a>@person.Email</a>
+            </td>
+            <td>
+                @person.Contracts.Count()
+            </td>
+            <td>
+                <a class="btn btn-primary">Editovat</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+@code {
+    private List<Person> persons = new List<Person>();
+
+    protected override void OnInitialized()
+    {
+        persons = context.Persons
+                    .Include(person => person.Contracts)
+                    .Take(100)
+                    .ToList();
+    }
+}

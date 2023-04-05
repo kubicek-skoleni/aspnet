@@ -1,3 +1,4 @@
+using InsuranceCorp.Data;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
@@ -7,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 
-
+builder.Services.AddDbContext<InsCorpDbContext>();
 
 var app = builder.Build();
 
