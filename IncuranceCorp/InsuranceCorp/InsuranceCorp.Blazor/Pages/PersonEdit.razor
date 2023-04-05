@@ -3,6 +3,28 @@
 
 <h3>Editaced osoby id: @Id</h3>
 
+<EditForm Model="person" OnSubmit="Save">
+    <div class="form-group">
+        <label class="form-label">Jméno</label>
+        <InputText @bind-Value="person.FirstName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label class="form-label">Příjmení</label>
+        <InputText @bind-Value="person.LastName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label class="form-label">Email</label>
+        <InputText @bind-Value="person.Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label class="form-label">Datum narození</label>
+        <InputDate @bind-Value="person.DateOfBirth" class="form-control" />
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary" type="submit">Ulož</button>
+    </div>
+</EditForm>
+
 @code {
 
     [Parameter]
@@ -13,5 +35,10 @@
     protected override void OnInitialized()
     {
         person = context.Persons.Find(Id);
+    }
+
+    private void Save()
+    {
+        
     }
 }
