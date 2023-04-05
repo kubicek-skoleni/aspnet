@@ -64,7 +64,9 @@
         try
         {
             context.SaveChanges();
+            
             nav.NavigateTo($"/person/detail/{person.Id}");
+            //nav.NavigateTo($"/person/detail/{person.Id}", forceLoad: true);
         }
         catch (Exception ex)
         {
