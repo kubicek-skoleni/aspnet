@@ -5,18 +5,16 @@
 * https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc?view=aspnetcore-7.0&tabs=visual-studio
 
 ### Tag Helpers
-https://learn.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/intro?view=aspnetcore-7.0
+* https://learn.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/intro?view=aspnetcore-7.0
 
 ### Routing
-https://learn.microsoft.com/en-us/aspnet/core/mvc/controllers/routing?view=aspnetcore-7.0
-
-MVC: /controller/metoda (Home/Index)
+* https://learn.microsoft.com/en-us/aspnet/core/mvc/controllers/routing?view=aspnetcore-7.0
+* MVC: /controller/metoda (Home/Index)
 
 
 ### Entity Framework Core
-https://learn.microsoft.com/en-us/ef/core/
-
-DbContext - spojení mezi db a c# - LINQ / SaveChanges()
+* https://learn.microsoft.com/en-us/ef/core/
+* DbContext - spojení mezi db a c# - LINQ / SaveChanges()
 
 ## Blazor
 * https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor
