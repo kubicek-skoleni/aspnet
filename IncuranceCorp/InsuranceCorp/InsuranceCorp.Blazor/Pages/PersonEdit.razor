@@ -1,0 +1,17 @@
+﻿@page "/person/edit/{Id:int}"
+@inject InsCorpDbContext context
+
+<h3>Editaced osoby id: @Id</h3>
+
+@code {
+
+    [Parameter]
+    public int Id { get; set; }
+
+    private Person person = new Person();
+
+    protected override void OnInitialized()
+    {
+        person = context.Persons.Find(Id);
+    }
+}
