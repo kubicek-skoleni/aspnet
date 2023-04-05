@@ -20,11 +20,9 @@ https://learn.microsoft.com/en-us/ef/core/
 DbContext - spojení mezi db a c# - LINQ / SaveChanges()
 
 ## Blazor
-https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor
-
-https://dotnet.microsoft.com/en-us/learn/aspnet/blazor-tutorial/add
-
-https://learn.microsoft.com/en-us/aspnet/core/blazor/?WT.mc_id=dotnet-35129-website&view=aspnetcore-7.0
+* https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor
+* https://dotnet.microsoft.com/en-us/learn/aspnet/blazor-tutorial/add
+* https://learn.microsoft.com/en-us/aspnet/core/blazor/?WT.mc_id=dotnet-35129-website&view=aspnetcore-7.0
 
 
 --------
