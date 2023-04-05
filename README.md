@@ -27,4 +27,10 @@ DbContext - spojení mezi db a c# - LINQ / SaveChanges()
 https://visualstudio.microsoft.com/downloads/
 
 ## vstupní test
-https://forms.gle/8tYwrn3UAtd23wft5
+...
+
+## výstupní test
+https://forms.gle/2eXgNqfqSs8pUqyL9
+
+## hodnocení kurzu
+https://ictpro.cz/hodnoceni
