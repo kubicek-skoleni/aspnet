@@ -1,3 +1,4 @@
+using InsuranceCorp.API.MiddleWares;
 using InsuranceCorp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +22,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseLogRequestMiddleware();
 
 //app.UseAuthorization();
 

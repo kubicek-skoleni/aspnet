@@ -91,6 +91,7 @@ namespace InsuranceCorp.MVC.Controllers
             // najit osobu z db
             var db_person = _context.Persons.Find(form_person.Id);
 
+
             // upravit hodnoty v db dle inputu z formu
             // 1. možnost zápisu
             db_person.FirstName = form_person.FirstName;
