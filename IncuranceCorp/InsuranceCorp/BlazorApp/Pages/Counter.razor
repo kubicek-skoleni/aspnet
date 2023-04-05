@@ -1,0 +1,27 @@
+﻿@page "/counter"
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @publicCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Increment</button>
+
+<button class="btn btn-primary" @onclick="Show">Show</button>
+
+@code {
+    private int publicCount = 0;
+
+    private int hiddenCount = 0;
+
+    private void IncrementCount()
+    {
+        hiddenCount++;
+    }
+
+    private void Show()
+    {
+        publicCount = hiddenCount;
+    }
+}
