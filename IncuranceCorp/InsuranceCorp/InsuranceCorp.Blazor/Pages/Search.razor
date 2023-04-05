@@ -19,7 +19,14 @@
 
 <br />
 <br />
+@if (showProgress)
+{
+    <div>hledám..</div>
+}
+<br />
+<br />
 <h6>Výsledek hledání:</h6>
+
 <table class="table table-striped" style="max-width:600px;">
     <tr>
         <td>Jméno</td>
@@ -37,14 +44,24 @@
 @code {
     private string search = "";
 
+    private bool showProgress = false;
+
     List<Person> findresult = new List<Person>();
 
-    private void searchbymail()
+    private async Task searchbymail()
     {
-        findresult = context.Persons
+        showProgress = true;
+
+        StateHasChanged();
+
+        await Task.Delay(500);
+
+        findresult = await context.Persons
               .AsNoTracking()
               .Where(person => person.Email.ToUpper().Contains(search.ToUpper()))
               .Take(100)
-              .ToList();
+              .ToListAsync();
+
+        showProgress = false;
     }
 }
