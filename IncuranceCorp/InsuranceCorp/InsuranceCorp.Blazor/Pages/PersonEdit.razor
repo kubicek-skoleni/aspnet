@@ -25,12 +25,30 @@
     </div>
 </EditForm>
 
+@if (showSuccess)
+{
+    <div class="alert alert-success" role="alert">
+        Změny uloženy do db
+    </div>
+}
+
+@if (showError)
+{
+    <div class="alert alert-danger" role="alert">
+        NEPODAŘILO SE ULOŽIT DO DB
+    </div>
+}
+
 @code {
 
     [Parameter]
     public int Id { get; set; }
 
     private Person person = new Person();
+
+    private bool showSuccess = false;
+
+    private bool showError = false;
 
     protected override void OnInitialized()
     {
@@ -39,6 +57,17 @@
 
     private void Save()
     {
-        
+        showSuccess = false;
+        showError = false;
+
+        try
+        {
+            context.SaveChanges();
+            showSuccess = true;
+        }
+        catch (Exception ex)
+        {
+            showError = true;
+        }
     }
 }
