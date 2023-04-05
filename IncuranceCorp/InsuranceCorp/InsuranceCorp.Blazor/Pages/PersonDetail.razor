@@ -1,0 +1,9 @@
+﻿@page "/person/detail/{Id:int}"
+
+<h3>Osoba Id: @Id</h3>
+
+@code {
+
+    [Parameter]
+    public int Id { get; set; }
+}
